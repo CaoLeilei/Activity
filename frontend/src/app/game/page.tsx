@@ -1,14 +1,12 @@
 'use client'
 import { Layout } from "antd";
+import TempButton from "@/components/TempButton";
+import HomeLayout from "@/components/HomeLayout/HomeLayout";
 export default function Game()
 {
   return (
-    <Layout>
-      <Layout.Content>
-        <main>
-          <h1>Hello, Next.js!</h1>
-        </main>
-      </Layout.Content>
-    </Layout>
+    <HomeLayout>
+      <div>game paage</div>
+    </HomeLayout>
   );
 }

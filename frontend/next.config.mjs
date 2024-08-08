@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
+import path from 'path';
+
 const nextConfig = {
-  transpilePackages: ['@douyinfe/semi-ui', '@douyinfe/semi-icons', '@douyinfe/semi-illustrations'],
+  sassOptions: {
+    // includePaths: [path.join(__dirname, 'styles')],
+  },
 };
 
 export default nextConfig;

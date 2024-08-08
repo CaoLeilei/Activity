@@ -18,7 +18,7 @@ interface RootLayoutProps {
 export default function RootLayout(props: Readonly<RootLayoutProps>) {
   const { children } = props;
 
-  console.log('props:', props);
+  // console.log('props:', props);
 
   return (
     <html lang="zh-CN">
