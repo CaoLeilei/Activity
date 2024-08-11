@@ -1,28 +1,29 @@
 import React from 'react'
 import { Layout } from 'antd'
-import HomeHeader from './HomeHeader'
-
+import BaseLayout from '../BaseLayout/BaseLayout'
+import HomeSider from './HomeSider'
 import styles from './HomeLayout.module.scss'
 
 const { Header, Content, Footer } = Layout
 interface HomeLayoutProps {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 export default function HomeLayout(props: HomeLayoutProps) {
 
   const { children } = props
 
   return (
-    <Layout>
-      <Header>
-        <HomeHeader />
-      </Header>
-      <Content>
-        <div className={styles.HomeLayout__Content}>
+    <BaseLayout>
+      <Layout className={styles.Container}>
+        <Layout.Sider theme="light" width={240} className={styles.Sider}>
+          <HomeSider />
+        </Layout.Sider>
+        <Layout.Content className={styles.Content}>
+          <div className={styles.Content__Inner}>
           { children }
-        </div>
-      </Content>
-      <Footer></Footer>
-    </Layout>
+          </div>
+        </Layout.Content>
+      </Layout>
+    </BaseLayout>
   )
 }

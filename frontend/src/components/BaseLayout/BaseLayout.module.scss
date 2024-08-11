@@ -1,0 +1,21 @@
+.Layout {
+  @apply relative bg-white w-full;
+  min-height: 100vh !important;
+}
+
+.Header {
+  @apply relative border-b border-b-gray-200 box-border shadow-sm h-[64px];
+  background: #ffffff !important;
+
+  &__Inner {
+    @apply relative flex bg-white w-full h-full ml-auto mr-auto max-w-[1600px] min-w-[1024px] pl-4 pr-4 box-border;
+  }
+}
+
+.Content {
+  @apply relative bg-white;
+  &__Inner {
+    @apply relative w-full min-w-[1024px] block box-border;
+    background: #ffffff !important;
+  }
+}

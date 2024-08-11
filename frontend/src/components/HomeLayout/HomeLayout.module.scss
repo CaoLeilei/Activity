@@ -1,11 +1,15 @@
-.HomeLayout {
-  position: relative;
+.Container {
+  @apply relative bg-white w-full;
+  min-height: calc(100vh - 64px) !important;
+}
 
-  &__Content {
-    display: block;
-    width: 100%;
-    max-width: 1600px;
-    min-width: 1024px;
-    margin: 0 auto;
+.Sider {
+  @apply border-r border-r-gray-200;
+}
+
+.Content {
+  @apply box-border p-4;
+  &__Inner {
+    @apply relative w-full max-w-[1600px] min-w-[1024px] bg-white box-border p-4 ml-auto mr-auto;
   }
 }

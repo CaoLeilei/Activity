@@ -1,0 +1,14 @@
+.Layout {
+  min-height: calc(100vh - 64px) !important;
+}
+
+.Sider {
+  &Inner {}
+}
+
+.Content {
+  @apply box-border p-4;
+  &Inner {
+    @apply relative w-full bg-white rounded-sm max-w-[1600px] box-border ml-auto mr-auto p-4;
+  }
+}
