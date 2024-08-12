@@ -1,0 +1,17 @@
+.GridView {
+
+  &__Row {
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 0;
+  }
+
+  &__Col {
+    width: 20%;
+  }
+
+  &__Card {
+    margin-bottom: 16px !important;
+    @apply shadow-sm;
+  }
+}

@@ -77,7 +77,7 @@ const items: MenuItem[] = [
   },
 ];
 
-const App: React.FC = (props: WorkbenchMenusProps) => {
+const WorkbenchMenus: React.FC = (props: WorkbenchMenusProps) => {
   const { currentMenu } = props
 
   const router = useRouter();
@@ -105,4 +105,4 @@ const App: React.FC = (props: WorkbenchMenusProps) => {
   );
 };
 
-export default App;
+export default WorkbenchMenus;

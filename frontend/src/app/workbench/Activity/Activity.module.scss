@@ -1,0 +1,27 @@
+.Header {
+  @apply relative flex w-full justify-between mb-4;
+
+  &__Tabs {
+    :global {
+      .ant-tabs-nav {
+        &::before {
+          display: none;
+        }
+        .ant-tabs-tab {
+          // padding-top: 8px;
+          // padding-bottom: 8px;
+          font-size: 16px;
+        }
+      }
+
+    }
+  }
+
+  &__OptBox {
+    @apply relative flex;
+  }
+
+  &__TrustBtn {
+    margin-left: 24px;
+  }
+}

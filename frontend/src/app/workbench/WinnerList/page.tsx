@@ -1,7 +1,11 @@
+'use client'
 import React from 'react'
+import WorkbenchLayout from '@/components/WorkbenchLayout/WorkbenchLayout'
 
 export default function WinnerList() {
   return (
-    <div>WinnerList</div>
+    <WorkbenchLayout>
+      <div>WinnerList</div>
+    </WorkbenchLayout>
   )
 }
