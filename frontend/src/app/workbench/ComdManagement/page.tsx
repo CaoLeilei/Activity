@@ -1,11 +1,12 @@
 'use client'
 import React from 'react'
+
 import WorkbenchLayout from '@/components/WorkbenchLayout/WorkbenchLayout'
 
-export default function UserManagement() {
+export default function ComdManagement() {
   return (
-    <WorkbenchLayout currentMenu="UserManagement">
-      <div>UserManagement</div>
+    <WorkbenchLayout currentMenu="ComdManagement">
+      <div>ComdManagement</div>
     </WorkbenchLayout>
   )
 }

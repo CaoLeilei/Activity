@@ -10,15 +10,16 @@ const cx = classNames.bind(styles);
 
 interface WorkbenchLayoutProps {
   children?: React.ReactNode,
-  currentMenu?: string,
+  currentMenu: string,
 }
 export default function WorkbenchLayout(props: WorkbenchLayoutProps) {
+  const { currentMenu } = props
   return (
     <BaseLayout>
     <Layout className={cx('Layout')}>
       <Layout.Sider theme="light" width={240} className={cx('Sider')}>
         <div className={cx('SiderInner')}>
-          <WorkbenchMenus currentMenu={props.currentMenu} />
+          <WorkbenchMenus currentMenu={currentMenu} />
         </div>
       </Layout.Sider>
       <Layout.Content className={cx('Content')}>

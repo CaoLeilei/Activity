@@ -1,7 +1,11 @@
+'use client'
 import React from 'react'
+import WorkbenchLayout from '@/components/WorkbenchLayout/WorkbenchLayout'
 
 export default function CouponManagement() {
   return (
-    <div>CouponManagement</div>
+    <WorkbenchLayout currentMenu="CouponManagement">
+      <div>CouponManagement</div>
+    </WorkbenchLayout>
   )
 }

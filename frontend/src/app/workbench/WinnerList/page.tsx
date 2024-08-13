@@ -4,7 +4,7 @@ import WorkbenchLayout from '@/components/WorkbenchLayout/WorkbenchLayout'
 
 export default function WinnerList() {
   return (
-    <WorkbenchLayout>
+    <WorkbenchLayout currentMenu="WinnerList">
       <div>WinnerList</div>
     </WorkbenchLayout>
   )

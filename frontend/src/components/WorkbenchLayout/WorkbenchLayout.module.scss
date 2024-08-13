@@ -3,12 +3,14 @@
 }
 
 .Sider {
-  &Inner {}
+  &Inner {
+    @apply relative flex justify-center pt-3;
+  }
 }
 
 .Content {
   @apply box-border p-4;
   &Inner {
-    @apply relative w-full bg-white rounded-sm max-w-[1600px] box-border ml-auto mr-auto p-4;
+    @apply relative w-full bg-white rounded-sm min-w-[1200px] box-border ml-auto mr-auto p-4;
   }
 }

@@ -1,7 +1,7 @@
 'use client'
-import React from 'react'
+import React, { use, useState } from 'react'
 import classNames from 'classnames/bind';
-import { Tabs, Radio, Button } from 'antd';
+import { Tabs, Radio, Button, RadioChangeEvent } from 'antd';
 import { AppstoreOutlined, MenuOutlined, DeleteOutlined } from  '@ant-design/icons';
 import WorkbenchLayout from '@/components/WorkbenchLayout/WorkbenchLayout'
 import GridView from '@/components/Workbench/Activity/GridView';
@@ -10,50 +10,75 @@ import styles from './Activity.module.scss'
 
 const cx = classNames.bind(styles)
 
+// 活动状态
+const ACT_STATUS = {
+  ALL: 'ALL',
+  UNPUBLISHED: 'UNPUBLISHED',
+  UNSTART: 'UNSTART',
+  INPROGRESS: 'INPROGRESS',
+  END: 'END'
+}
+
+// 活动的展示形式
+const ACT_VIEW_TYPES = {
+  GRID: 'GRID',
+  LIST: 'LIST'
+}
+
 export default function Activity() {
+
+  const [activeStatus, setActiveStatus] = useState(ACT_STATUS.ALL)
+  const [activeViewType, setActiveViewType] = useState(ACT_VIEW_TYPES.GRID)
+
+  const handleViewTypeChange = (e: RadioChangeEvent) => {
+    const value: string = e.target.value as string
+    console.log('handleViewTypeChange', e)
+    setActiveViewType(value)
+  }
 
   const items = [
     {
-      key: '1',
+      key: ACT_STATUS.ALL,
       label: `全部`,
-      children: '',
     },
     {
-      key: '2',
+      key: ACT_STATUS.UNPUBLISHED,
       label: `未发布`,
-      children: '',
     },
     {
-      key: '3',
+      key: ACT_STATUS.UNSTART,
       label: `未开始`,
-      children: '',
     },
     {
-      key: '4',
+      key: ACT_STATUS.INPROGRESS,
       label: `进行中`,
-      children: '',
     },
     {
-      key: '5',
+      key: ACT_STATUS.END,
       label: `已结束`,
-      children: '',
     },
   ];
 
   const onChange = (key: string) => {
-    console.log(key);
+    setActiveStatus(key)
   };
 
   return (
-    <WorkbenchLayout>
+    <WorkbenchLayout currentMenu="Activity">
       <div className={cx('Header')}>
-        <Tabs defaultActiveKey="1" className={cx('Header__Tabs')} items={items} onChange={onChange} />
+        <Tabs defaultActiveKey={ACT_STATUS.ALL} activeKey={activeStatus} className={cx('Header__Tabs')} items={items} onChange={onChange} />
         <div className={cx('Header__OptBox')}>
-          <Radio.Group defaultValue="a" className={cx('Header__ViewType')} buttonStyle="solid">
-            <Radio.Button value="Grid">
+          <Radio.Group
+            defaultValue={ACT_VIEW_TYPES.GRID}
+            value={activeViewType}
+            className={cx('Header__ViewType')}
+            buttonStyle="solid"
+            onChange={handleViewTypeChange}
+          >
+            <Radio.Button value={ACT_VIEW_TYPES.GRID}>
               <AppstoreOutlined />
             </Radio.Button>
-            <Radio.Button value="b">
+            <Radio.Button value={ACT_VIEW_TYPES.LIST}>
               <MenuOutlined />
             </Radio.Button>
           </Radio.Group>

@@ -1,7 +1,11 @@
+'use client'
 import React from 'react'
+import WorkbenchLayout from '@/components/WorkbenchLayout/WorkbenchLayout'
 
 export default function ActivityEdit() {
   return (
-    <div>ActivityEdit</div>
+    <WorkbenchLayout currentMenu="Activity">
+      <div>ActivityEdit</div>
+    </WorkbenchLayout>
   )
 }

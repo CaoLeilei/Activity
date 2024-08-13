@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useReducer } from 'react'
+import { useRouter } from 'next/navigation'
 import classNames from 'classnames/bind'
 import { Card, Button } from 'antd'
 import { SendOutlined, SettingOutlined, EditOutlined, EllipsisOutlined } from  '@ant-design/icons';
@@ -6,6 +7,14 @@ import { SendOutlined, SettingOutlined, EditOutlined, EllipsisOutlined } from  '
 import styles from './Activity.module.scss'
 
 const cx = classNames.bind(styles)
+
+interface ItemBtnProps {
+  data: any
+}
+
+interface ActItemProps {
+  data: any
+}
 
 const SettingButton: React.FC = props => {
   return (
@@ -15,22 +24,32 @@ const SettingButton: React.FC = props => {
   )
 }
 
-const EditButton: React.FC = props => {
+const EditButton = (props: ItemBtnProps) => {
+  const { data: { actId  = 1 } = {} } = props
+  const router = useRouter()
+  const handleClick = () => {
+    router.push(`/workbench/Activity/${actId}/Edit`)
+  }
   return (
-    <Button type="text" icon={<EditOutlined />} key="edit">
+    <Button type="text" icon={<EditOutlined />} key="edit" onClick={handleClick}>
       编辑
     </Button>
   )
 }
 
-const PublishButton: React.FC = props => {
+const PublishButton = (props: ItemBtnProps) => {
+
+  const submitPublish = async () => {
+    console.log('submit publish')
+  }
+
   return (
-    <Button type="text" icon={<SendOutlined />} key="publish">
+    <Button type="text" icon={<SendOutlined />} key="publish" onClick={() => { submitPublish() }}>
       发布
     </Button>
   )
 }
-export default function GridViewItem() {
+export default function GridViewItem(props: ActItemProps) {
 
   const itemAction = [
   ]
@@ -40,8 +59,8 @@ export default function GridViewItem() {
       cover={<img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"/>}
       className={cx('GridView__Card')}
       actions={[
-        <PublishButton key="publish" />,
-        <EditButton key="edit" />,
+        <PublishButton key="publish" data={props.data} />,
+        <EditButton key="edit" data={props.data} />,
         <SettingButton key="setting" />,
         // <EllipsisOutlined key="ellipsis" />,
       ]}

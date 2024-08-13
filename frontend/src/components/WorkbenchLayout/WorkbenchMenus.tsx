@@ -9,18 +9,22 @@ import {
   SettingOutlined,
   HomeOutlined
 } from '@ant-design/icons';
+import classNames from 'classnames/bind';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import styles from './WorkbenchMenus.module.scss'
+
+const cx = classNames.bind(styles)
 
 type MenuItem = Required<MenuProps>['items'][number];
 interface WorkbenchMenusProps {
-  currentMenu?: string,
+  currentMenu: string,
 }
 
 const items: MenuItem[] = [
   {
     key: 'Dashboard',
-    label: '控制中心',
+    label: '管理中心',
     icon: <HomeOutlined />,
   },
   {
@@ -77,12 +81,12 @@ const items: MenuItem[] = [
   },
 ];
 
-const WorkbenchMenus: React.FC = (props: WorkbenchMenusProps) => {
+export default function WorkbenchMenus (props: WorkbenchMenusProps) {
   const { currentMenu } = props
 
   const router = useRouter();
 
-  const onClick: MenuProps['onClick'] = ({key}) => {
+  const handleClick: MenuProps['onClick'] = ({key}) => {
     console.log('click ', key);
     if (key === 'Dashboard') {
       router.push('/workbench', { scroll: false })
@@ -95,14 +99,12 @@ const WorkbenchMenus: React.FC = (props: WorkbenchMenusProps) => {
 
   return (
     <Menu
-      onClick={onClick}
-      style={{ width: 240 }}
-      defaultSelectedKeys={defaultSelectedKeys}
-      defaultOpenKeys={['sub1']}
       mode="inline"
+      className={cx('Menus')}
+      defaultSelectedKeys={defaultSelectedKeys}
+      defaultOpenKeys={[currentMenu]}
       items={items}
+      onClick={handleClick}
     />
   );
 };
-
-export default WorkbenchMenus;
