@@ -28,12 +28,12 @@ const ACT_VIEW_TYPES = {
 export default function Activity() {
 
   const [activeStatus, setActiveStatus] = useState(ACT_STATUS.ALL)
-  const [activeViewType, setActiveViewType] = useState(ACT_VIEW_TYPES.GRID)
+  const [actViewType, setActViewType] = useState(ACT_VIEW_TYPES.GRID)
 
   const handleViewTypeChange = (e: RadioChangeEvent) => {
     const value: string = e.target.value as string
     console.log('handleViewTypeChange', e)
-    setActiveViewType(value)
+    setActViewType(value)
   }
 
   const items = [
@@ -70,7 +70,7 @@ export default function Activity() {
         <div className={cx('Header__OptBox')}>
           <Radio.Group
             defaultValue={ACT_VIEW_TYPES.GRID}
-            value={activeViewType}
+            value={actViewType}
             className={cx('Header__ViewType')}
             buttonStyle="solid"
             onChange={handleViewTypeChange}
@@ -89,6 +89,7 @@ export default function Activity() {
         </div>
       </div>
       <div className={cx('Container')}>
+        { }
         <GridView />
       </div>
     </WorkbenchLayout>

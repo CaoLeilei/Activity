@@ -1,0 +1,21 @@
+.Layout {
+  @apply bg-gray-100 w-full h-screen;
+
+  .Header {
+    @apply bg-white w-full shadow-sm box-border z-10 border-b border-b-gray-200;
+  }
+
+  .Container {
+    height: calc(100vh - 64px)
+  }
+  .Content {
+    @apply bg-white w-full h-full;
+  }
+
+  .ViewBox {
+    @apply bg-gray-100 w-full h-full;
+  }
+
+}
+
+.PageSider {}
